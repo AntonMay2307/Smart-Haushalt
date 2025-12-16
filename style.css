@@ -13,3 +13,36 @@ button {
     font-size: 32px;
     cursor: pointer;
 }
+
+.category {
+    margin-bottom: 30px; /* Abstand zwischen Kategorien */
+}
+
+.category h2 {
+    margin-bottom: 10px; /* Abstand zwischen Überschrift und Buttons */
+}
+
+.button-container {
+    display: flex;       /* Buttons nebeneinander */
+    flex-wrap: wrap;     /* Zeilenumbruch bei kleinen Bildschirmen */
+    gap: 15px;           /* Abstand zwischen Buttons */
+}
+
+.item-button {
+    display: flex;
+    flex-direction: column; /* Bild über Text */
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+    cursor: pointer;
+}
+
+.item-button img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}

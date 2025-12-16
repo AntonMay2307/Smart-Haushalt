@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
     <title>Haushalt erfassen</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -10,9 +10,38 @@
     <h1>Bestand erfassen</h1>
     <p>Wählen Sie nun aus welche Lebensmittel sich aktuell in ihrem Haushalt befinden.</p>
 
-    <a href="index.html">
+    <!-- Kategorie Nudeln -->
+<section class="category">
+    <h2>Nudeln</h2>
+    <div class="button-container">
+        <button class="item-button" data-item="Spaghetti">
+            <img src="Icons/pasta.png" >
+            <span>Spaghetti</span>
+        </button>       
+    </div>
+</section>
+
+<!-- Kategorie Gemüse -->
+<section class="category">
+    <h2>Gemüse</h2>
+    <div class="button-container">
+        <button class="item-button" data-item="Salatgurke">
+            <img src="Icons/icons8-cucumber-64.png" >
+            <span>Salatgurke</span>
+        </button>
+        <button class="item-button" data-item="Paprika">
+            <img src="Icons/icons8-paprika-48.png" >
+            <span>Paprika</span>
+        </button>
+    </div>
+</section>
+    <h2>Bestand:</h2>
+    <ul id="bestand-list"></ul>
+
+     <a href="index.html">
         <button>Zurück zur Startseite</button>
     </a>
 
+    <script src="script.js"></script>
 </body>
 </html>
