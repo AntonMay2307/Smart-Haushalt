@@ -9,5 +9,24 @@ buttons.forEach(button => {
         const li = document.createElement('li'); // Neues Listenelement erstellen
         li.textContent = itemText;
         bestandsListe.appendChild(li); // Zur Liste hinzufügen
+
+        speichern();
     });
 });
+
+function speichern() {
+    localStorage.setItem(
+        'bestand',
+        JSON.stringify([...bestandsListe.children].map(li => li.textContent))
+    );
+}
+
+const gespeicherterBestand = JSON.parse(localStorage.getItem('bestand'));
+
+if (gespeicherterBestand) {
+    gespeicherterBestand.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = item;
+        bestandsListe.appendChild(li);
+    });
+}
