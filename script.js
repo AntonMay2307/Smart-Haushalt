@@ -30,11 +30,11 @@ async function ladeBestand() {
         return;
     }
 
-    list.innerHTML = "";
+    bestandsListe.innerHTML = ""; // Liste leeren
 
     data.forEach(item => {
         const li = document.createElement("li");
-        li.textContent = item.name;
-        list.appendChild(li);
+        li.textContent = item.name; // 'name' ist Spalte in Supabase-Tabelle
+        bestandsListe.appendChild(li);
     });
 }
