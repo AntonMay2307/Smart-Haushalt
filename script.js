@@ -2,6 +2,11 @@
 const buttons = document.querySelectorAll('.item-button');
 const bestandsListe = document.getElementById('bestand-list');
 
+// Sobald die Seite geladen ist, den aktuellen Bestand abrufen
+window.addEventListener("DOMContentLoaded", () => {
+    ladeBestand();
+});
+
 // Für jeden Button einen Klick-Event hinzufügen
 buttons.forEach(button => {
     button.addEventListener('click', async () => {
