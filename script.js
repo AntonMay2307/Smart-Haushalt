@@ -4,29 +4,37 @@ const bestandsListe = document.getElementById('bestand-list');
 
 // Für jeden Button einen Klick-Event hinzufügen
 buttons.forEach(button => {
-    button.addEventListener('click', () => {
-        const itemText = button.dataset.item; // Text aus dem data-item Attribut
-        const li = document.createElement('li'); // Neues Listenelement erstellen
-        li.textContent = itemText;
-        bestandsListe.appendChild(li); // Zur Liste hinzufügen
+    button.addEventListener('click', async () => {
+        const item = button.dataset.item; // Text aus dem data-item Attribut
+        const { error } = await supabase
+            .from("bestand")
+            .insert([{ name: item }]);
 
-        speichern();
+        if (error) {
+            console.error(error);
+            return;
+        }
+
+        ladeBestand();
     });
 });
 
-function speichern() {
-    localStorage.setItem(
-        'bestand',
-        JSON.stringify([...bestandsListe.children].map(li => li.textContent))
-    );
-}
+async function ladeBestand() {
+    const { data, error } = await supabase
+        .from("bestand")
+        .select("*")
+        .order("created_at");
 
-const gespeicherterBestand = JSON.parse(localStorage.getItem('bestand'));
+    if (error) {
+        console.error(error);
+        return;
+    }
 
-if (gespeicherterBestand) {
-    gespeicherterBestand.forEach(item => {
-        const li = document.createElement('li');
-        li.textContent = item;
-        bestandsListe.appendChild(li);
+    list.innerHTML = "";
+
+    data.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = item.name;
+        list.appendChild(li);
     });
 }

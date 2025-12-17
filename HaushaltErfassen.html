@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
     <title>Haushalt erfassen</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -41,6 +42,13 @@
      <a href="index.html">
         <button>Zurück zur Startseite</button>
     </a>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script>
+    const supabaseUrl = "https://ggytuatikajiexbgyvar.supabase.co";
+    const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdneXR1YXRpa2FqaWV4Ymd5dmFyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU5NjMwMzcsImV4cCI6MjA4MTUzOTAzN30.YHW66yii9JWwWdKC0eXYrElFL1tgdMBCpbyhbotVvo4";
+    window.supabase = supabase.createClient(supabaseUrl, supabaseKey);
+    </script>
 
     <script src="script.js"></script>
 </body>
